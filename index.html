@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning Algorithms – Visualized</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/framer-motion@10.12.16/dist/framer-motion.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Load Components in order via Babel (synchronous emulation) -->
+  <script type="text/babel" src="components/Navbar.jsx"></script>
+  <script type="text/babel" src="components/Hero.jsx"></script>
+  <script type="text/babel" src="components/AlgorithmsGrid.jsx"></script>
+  <script type="text/babel" src="components/DecisionTree.jsx"></script>
+  <script type="text/babel" src="components/KNN.jsx"></script>
+  <script type="text/babel" src="components/NaiveBayes.jsx"></script>
+  <script type="text/babel" src="components/LogisticRegression.jsx"></script>
+  <script type="text/babel" src="components/Versus.jsx"></script>
+  <script type="text/babel" src="components/Compare.jsx"></script>
+  <script type="text/babel" src="components/Playground.jsx"></script>
+
+  <!-- Load Main App -->
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
