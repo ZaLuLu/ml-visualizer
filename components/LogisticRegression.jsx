@@ -103,6 +103,19 @@ window.LRPage = ({ setActiveSection }) => {
               <li>Assumes linear relationship between variables and logs odds.</li>
             </ul>
           </div>
+          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Formula & Calculation Example</h4>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <strong>Sigmoid Function:</strong> <code>y = 1 / (1 + e<sup>-z</sup>)</code> where <code>z = mx + c</code>
+            </p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <strong>Calculation:</strong> Predict if student passes based on <code>x = 2</code> hours studied.<br/>
+              Let Slope <code>m = 1.5</code>, Bias <code>c = -2</code>.<br/>
+              <code>z = 1.5(2) - 2 = 3 - 2 = 1.0</code><br/>
+              <code>y = 1 / (1 + e<sup>-1.0</sup>) &approx; 1 / (1 + 0.367) &approx; 0.73</code><br/>
+              0.73 is greater than the 0.5 threshold, so the prediction is "Pass".
+            </p>
+          </div>
           <div>
             <h4 style={{ color: 'var(--text-primary)' }}>Best Used For:</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Pass/Fail testing, Fraud detection, Customer churn probability.</p>

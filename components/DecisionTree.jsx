@@ -67,6 +67,18 @@ window.DecisionTreePage = ({ setActiveSection }) => {
               <li>Unstable (small data changes cause massive tree tweaks).</li>
             </ul>
           </div>
+          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Formula & Calculation Example</h4>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <strong>Gini Impurity:</strong> <code>Gini = 1 - &Sigma;(p<sub>i</sub>)&sup2;</code>
+            </p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <strong>Calculation:</strong> Given a group with 4 Apples and 2 Oranges (Total 6).<br/>
+              Probabilities: <code>p(Apple) = 4/6</code>, <code>p(Orange) = 2/6</code>.<br/>
+              <code>Gini = 1 - ((4/6)&sup2; + (2/6)&sup2;) = 1 - (16/36 + 4/36) = 1 - (20/36) = 16/36 &approx; 0.44</code><br/>
+              A lower Gini Impurity (closer to 0) implies a purer node split.
+            </p>
+          </div>
           <div>
             <h4 style={{ color: 'var(--text-primary)' }}>Best Used For:</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Medical diagnosis rules, Loan approvals, Categorical decisions.</p>

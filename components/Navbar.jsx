@@ -10,7 +10,7 @@ window.Navbar = ({ activeSection, setActiveSection }) => {
         ML Visualized
       </div>
       <div className="nav-links">
-        {['home', 'algorithms', 'versus', 'compare', 'playground'].map((sec) => (
+        {['home', 'algorithms', 'versus', 'compare'].map((sec) => (
           <a
             key={sec}
             className={`nav-link ${(activeSection === sec || (sec === 'algorithms' && ['dt','knn','nb','lr'].includes(activeSection))) ? 'active' : ''}`}

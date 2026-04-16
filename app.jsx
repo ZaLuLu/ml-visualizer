@@ -15,7 +15,6 @@ const App = () => {
       {activeSection === 'lr' && <window.LRPage setActiveSection={setActiveSection} />}
       {activeSection === 'versus' && <window.VersusShowdown />}
       {activeSection === 'compare' && <window.CompareSection />}
-      {activeSection === 'playground' && <window.PlaygroundSection />}
       
     </div>
   );

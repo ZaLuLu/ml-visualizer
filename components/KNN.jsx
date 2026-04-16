@@ -112,6 +112,18 @@ window.KNNPage = ({ setActiveSection }) => {
               <li>Struggles with high dimensions (Curse of Dimensionality).</li>
             </ul>
           </div>
+          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Formula & Calculation Example</h4>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <strong>Euclidean Distance:</strong> <code>d = &radic;((x<sub>2</sub> - x<sub>1</sub>)&sup2; + (y<sub>2</sub> - y<sub>1</sub>)&sup2;)</code>
+            </p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <strong>Calculation:</strong> Suppose we have a new point P(3, 4).<br/>
+              Dist to existing A(0, 0): <code>d = &radic;((3-0)&sup2; + (4-0)&sup2;) = &radic;25 = 5</code><br/>
+              Dist to existing B(3, 1): <code>d = &radic;((3-3)&sup2; + (4-1)&sup2;) = &radic;9 = 3</code><br/>
+              If K=1, point P is classified same as B because it is closer (3 &lt; 5).
+            </p>
+          </div>
           <div>
             <h4 style={{ color: 'var(--text-primary)' }}>Best Used For:</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Recommendation systems, Pattern recognition, Similar document matching.</p>

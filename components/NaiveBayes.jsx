@@ -68,6 +68,18 @@ window.NBPage = ({ setActiveSection }) => {
               <li>"Zero Frequency" problem if a category is missing in training.</li>
             </ul>
           </div>
+          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Formula & Calculation Example</h4>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <strong>Bayes' Theorem:</strong> <code>P(A|B) = [P(B|A) &times; P(A)] / P(B)</code>
+            </p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+              <strong>Calculation:</strong> Will an email be Spam (A) given the word "Free" (B)?<br/>
+              <code>P(Spam) = 0.5</code>, <code>P(Free | Spam) = 0.8</code>, <code>P(Free) = 0.5</code>.<br/>
+              <code>P(Spam | Free) = (0.8 &times; 0.5) / 0.5 = 0.4 / 0.5 = 0.8</code><br/>
+              The email is 80% likely to be spam based on seeing the word "Free".
+            </p>
+          </div>
           <div>
             <h4 style={{ color: 'var(--text-primary)' }}>Best Used For:</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Spam filtering, Sentiment analysis, Document categorization.</p>
