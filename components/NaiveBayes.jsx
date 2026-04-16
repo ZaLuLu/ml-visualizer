@@ -74,10 +74,10 @@ window.NBPage = ({ setActiveSection }) => {
               <strong>Bayes' Theorem:</strong> <code>P(A|B) = [P(B|A) &times; P(A)] / P(B)</code>
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-              <strong>Calculation:</strong> Will an email be Spam (A) given the word "Free" (B)?<br/>
-              <code>P(Spam) = 0.5</code>, <code>P(Free | Spam) = 0.8</code>, <code>P(Free) = 0.5</code>.<br/>
-              <code>P(Spam | Free) = (0.8 &times; 0.5) / 0.5 = 0.4 / 0.5 = 0.8</code><br/>
-              The email is 80% likely to be spam based on seeing the word "Free".
+              <strong>Interactive Calculation:</strong> Will an email be Spam (A) given the word "Free" (B)?<br/>
+              <code>P(Spam) = 0.5</code>, <code>P(Free | Spam) = {spamProb.toFixed(2)}</code>, <code>P(Free) = 0.5</code>.<br/>
+              <code>P(Spam | Free) = ({spamProb.toFixed(2)} &times; 0.5) / 0.5 = {(spamProb * 0.5 / 0.5).toFixed(2)}</code><br/>
+              The email is <strong>{Math.round(spamProb * 100)}%</strong> likely to be spam based on seeing the word "Free".
             </p>
           </div>
           <div>

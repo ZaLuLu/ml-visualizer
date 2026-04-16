@@ -109,11 +109,11 @@ window.LRPage = ({ setActiveSection }) => {
               <strong>Sigmoid Function:</strong> <code>y = 1 / (1 + e<sup>-z</sup>)</code> where <code>z = mx + c</code>
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-              <strong>Calculation:</strong> Predict if student passes based on <code>x = 2</code> hours studied.<br/>
-              Let Slope <code>m = 1.5</code>, Bias <code>c = -2</code>.<br/>
-              <code>z = 1.5(2) - 2 = 3 - 2 = 1.0</code><br/>
-              <code>y = 1 / (1 + e<sup>-1.0</sup>) &approx; 1 / (1 + 0.367) &approx; 0.73</code><br/>
-              0.73 is greater than the 0.5 threshold, so the prediction is "Pass".
+              <strong>Interactive Calculation:</strong> Predict if student passes based on <code>x = 2</code> hours studied.<br/>
+              Let Slope <code>m = 2.0</code>, Bias (Shift) <code>c = -({weight})</code>.<br/>
+              <code>z = 2.0(2) - {weight} = {4 - weight}</code><br/>
+              <code>y = 1 / (1 + e<sup>-{4 - weight}</sup>) &approx; {(1 / (1 + Math.exp(-(4 - weight)))).toFixed(2)}</code><br/>
+              {(1 / (1 + Math.exp(-(4 - weight)))) > 0.5 ? <strong>y &gt; 0.5 &rarr; Prediction: Pass</strong> : <strong>y &lt; 0.5 &rarr; Prediction: Fail</strong>}.
             </p>
           </div>
           <div>

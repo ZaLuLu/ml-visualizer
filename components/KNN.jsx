@@ -4,22 +4,24 @@ window.KNNPage = ({ setActiveSection }) => {
   const [kValue, setKValue] = useState(3);
   const canvasRef = useRef(null);
 
+  const points = [
+    { x: 50, y: 50, class: 0 }, { x: 80, y: 60, class: 0 }, { x: 40, y: 90, class: 0 },
+    { x: 200, y: 200, class: 1 }, { x: 220, y: 180, class: 1 }, { x: 250, y: 230, class: 1 },
+    { x: 120, y: 180, class: 0 }, { x: 180, y: 100, class: 1 }, { x: 140, y: 50, class: 0 }
+  ];
+  const newPoint = { x: 160, y: 130 };
+  const dist = (p1, p2) => Math.sqrt((p1.x-p2.x)**2 + (p1.y-p2.y)**2);
+  const sorted = [...points].sort((a,b) => dist(newPoint, a) - dist(newPoint, b));
+  const neighbors = sorted.slice(0, kValue);
+
+  const class0Votes = neighbors.filter(n => n.class === 0).length;
+  const class1Votes = neighbors.filter(n => n.class === 1).length;
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     
-    let points = [
-      { x: 50, y: 50, class: 0 }, { x: 80, y: 60, class: 0 }, { x: 40, y: 90, class: 0 },
-      { x: 200, y: 200, class: 1 }, { x: 220, y: 180, class: 1 }, { x: 250, y: 230, class: 1 },
-      { x: 120, y: 180, class: 0 }, { x: 180, y: 100, class: 1 }, { x: 140, y: 50, class: 0 }
-    ];
-    let newPoint = { x: 160, y: 130 };
-
-    const dist = (p1, p2) => Math.sqrt((p1.x-p2.x)**2 + (p1.y-p2.y)**2);
-    const sorted = [...points].sort((a,b) => dist(newPoint, a) - dist(newPoint, b));
-    const neighbors = sorted.slice(0, kValue);
-
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -60,7 +62,7 @@ window.KNNPage = ({ setActiveSection }) => {
       }
     };
     render();
-  }, [kValue]);
+  }, [kValue, neighbors, points, newPoint]);
 
   return (
     <section className="fade-in" style={{ paddingTop: '8rem', maxWidth: '1000px', margin: '0 auto' }}>
@@ -118,10 +120,10 @@ window.KNNPage = ({ setActiveSection }) => {
               <strong>Euclidean Distance:</strong> <code>d = &radic;((x<sub>2</sub> - x<sub>1</sub>)&sup2; + (y<sub>2</sub> - y<sub>1</sub>)&sup2;)</code>
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-              <strong>Calculation:</strong> Suppose we have a new point P(3, 4).<br/>
-              Dist to existing A(0, 0): <code>d = &radic;((3-0)&sup2; + (4-0)&sup2;) = &radic;25 = 5</code><br/>
-              Dist to existing B(3, 1): <code>d = &radic;((3-3)&sup2; + (4-1)&sup2;) = &radic;9 = 3</code><br/>
-              If K=1, point P is classified same as B because it is closer (3 &lt; 5).
+              <strong>Interactive Calculation:</strong> Target Point at ({newPoint.x}, {newPoint.y}).<br/>
+              Distances to top K={kValue} neighbors: <code>{neighbors.map(n => Math.round(dist(newPoint, n))).join(', ')}</code>.<br/>
+              Votes: <strong>{class0Votes}</strong> for <span style={{color: '#f43f5e'}}>Red</span>, <strong>{class1Votes}</strong> for <span style={{color: '#3b82f6'}}>Blue</span>.<br/>
+              Final Classification: <strong>{class1Votes > class0Votes ? "Blue" : "Red"}</strong>.
             </p>
           </div>
           <div>
