@@ -114,16 +114,19 @@ window.KNNPage = ({ setActiveSection }) => {
               <li>Struggles with high dimensions (Curse of Dimensionality).</li>
             </ul>
           </div>
-          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-            <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Formula & Calculation Example</h4>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
-              <strong>Euclidean Distance:</strong> <code>d = &radic;((x<sub>2</sub> - x<sub>1</sub>)&sup2; + (y<sub>2</sub> - y<sub>1</sub>)&sup2;)</code>
-            </p>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-              <strong>Interactive Calculation:</strong> Target Point at ({newPoint.x}, {newPoint.y}).<br/>
-              Distances to top K={kValue} neighbors: <code>{neighbors.map(n => Math.round(dist(newPoint, n))).join(', ')}</code>.<br/>
-              Votes: <strong>{class0Votes}</strong> for <span style={{color: '#f43f5e'}}>Red</span>, <strong>{class1Votes}</strong> for <span style={{color: '#3b82f6'}}>Blue</span>.<br/>
-              Final Classification: <strong>{class1Votes > class0Votes ? "Blue" : "Red"}</strong>.
+          <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(56, 189, 248, 0.3)', boxShadow: '0 0 15px rgba(56, 189, 248, 0.1)', backdropFilter: 'blur(10px)', fontFamily: 'monospace' }}>
+            <h4 style={{ color: 'var(--accent-knn)', marginBottom: '1rem', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.85rem' }}>&lt; Live Math Engine /&gt;</h4>
+            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                <span style={{color: '#c084fc'}}>const</span> distance = <span style={{color: '#fbbf24'}}>Math</span>.sqrt((x₂ - x₁)² + (y₂ - y₁)²);
+              </p>
+            </div>
+            <p style={{ color: 'var(--text-primary)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+              <span style={{color: '#64748b'}}>// Interactive Calculation</span><br/>
+              Target Point: <strong style={{color: '#f8fafc'}}>({newPoint.x}, {newPoint.y})</strong><br/>
+              Distances to top K={kValue} neighbors: <code style={{color: 'var(--accent-knn)', background: 'rgba(56,189,248,0.1)', padding: '2px 6px', borderRadius: '4px'}}>[{neighbors.map(n => Math.round(dist(newPoint, n))).join(', ')}]</code><br/>
+              Votes: <strong>{class0Votes}</strong> for <span style={{color: '#f43f5e', textShadow: '0 0 5px #f43f5e'}}>Red</span>, <strong>{class1Votes}</strong> for <span style={{color: '#3b82f6', textShadow: '0 0 5px #3b82f6'}}>Blue</span><br/>
+              <span style={{color: '#c084fc'}}>return</span> <strong style={{color: class1Votes > class0Votes ? '#3b82f6' : '#f43f5e', fontSize: '1.1rem'}}>{class1Votes > class0Votes ? "Blue" : "Red"}</strong>;
             </p>
           </div>
           <div>

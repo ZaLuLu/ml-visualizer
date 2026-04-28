@@ -71,16 +71,21 @@ window.DecisionTreePage = ({ setActiveSection }) => {
               <li>Unstable (small data changes cause massive tree tweaks).</li>
             </ul>
           </div>
-          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-            <h4 style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Formula & Calculation Example</h4>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
-              <strong>Gini Impurity:</strong> <code>Gini = 1 - &Sigma;(p<sub>i</sub>)&sup2;</code>
-            </p>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-              <strong>Interactive Calculation:</strong> Given a dataset of 100 applicants. If we split at Income &gt; {threshold}k:<br/>
-              <code>p(Reject) = {rejectCount}/100 = {pReject.toFixed(2)}</code>,  <code>p(Approve) = {approveCount}/100 = {pApprove.toFixed(2)}</code>.<br/>
-              <code>Gini = 1 - (({pReject.toFixed(2)})&sup2; + ({pApprove.toFixed(2)})&sup2;) = 1 - ({Math.pow(pReject, 2).toFixed(2)} + {Math.pow(pApprove, 2).toFixed(2)}) = <strong>{gini.toFixed(3)}</strong></code><br/>
-              A lower Gini implies a purer node split.
+          <div style={{ background: 'rgba(15, 23, 42, 0.8)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(16, 185, 129, 0.3)', boxShadow: '0 0 15px rgba(16, 185, 129, 0.1)', backdropFilter: 'blur(10px)', fontFamily: 'monospace' }}>
+            <h4 style={{ color: 'var(--accent-dt)', marginBottom: '1rem', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.85rem' }}>&lt; Live Math Engine /&gt;</h4>
+            <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                <span style={{color: '#c084fc'}}>const</span> giniImpurity = 1 - Σ(pᵢ²);
+              </p>
+            </div>
+            <p style={{ color: 'var(--text-primary)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+              <span style={{color: '#64748b'}}>// Interactive Calculation (N=100)</span><br/>
+              <span style={{color: '#c084fc'}}>let</span> split = Income &gt; <strong style={{color: '#f8fafc'}}>{threshold}k</strong>;<br/>
+              p(Reject) = {rejectCount}/100 = <strong style={{color: '#f43f5e'}}>{pReject.toFixed(2)}</strong><br/>
+              p(Approve) = {approveCount}/100 = <strong style={{color: 'var(--accent-dt)'}}>{pApprove.toFixed(2)}</strong><br/>
+              <br/>
+              Gini = 1 - ({pReject.toFixed(2)}² + {pApprove.toFixed(2)}²)<br/>
+              <span style={{color: '#c084fc'}}>return</span> Gini = <strong style={{color: 'var(--accent-dt)', fontSize: '1.2rem', textShadow: '0 0 8px rgba(16,185,129,0.5)'}}>{gini.toFixed(3)}</strong>;
             </p>
           </div>
           <div>
